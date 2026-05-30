@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command Center - CyberSec Learning Dashboard</title>
+  <meta name="description" content="Core metrics dashboard tracking cybersecurity learning progress, skills radar indicators, and student logs.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary Navigation">
+      <a href="../index.html" class="brand-container">
+        <div class="brand-icon">☣</div>
+        <div class="brand-text">
+          <span>CYBERSEC HUB</span>
+          <span class="brand-subtext">Sentinel Console</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="nav-item">
+            <a href="../index.html">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Terminal Welcome</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+              <span>Command Center</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="projects.html">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
+              <span>Project Showcase</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="roadmap.html">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              <span>Sentinel Pathway</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="resources.html">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0-2-.9-2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span>Threat Feed & Info</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Recruiter Profile Widget -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar">HR</div>
+        <div class="profile-info">
+          <span class="profile-name">Guest Recruiter</span>
+          <span class="profile-role">Sandbox Active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="flex-row">
+          <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Sidebar Navigation" style="display: none;">
+            ☰
+          </button>
+          <h1>Command Center Dashboard</h1>
+        </div>
+        
+        <div class="flex-row">
+          <div class="badge badge-cyan flex-row" style="padding: 0.4rem 0.8rem;">
+            <span class="tech-dot info"></span>
+            <span>MONITOR ACTIVE</span>
+          </div>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark or Light theme">
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content-body">
+        <!-- Top row metric cards -->
+        <section class="grid-3" aria-label="Quick System Diagnostics">
+          <!-- Circular Progress Meter -->
+          <div class="cyber-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem;">
+            <h2 class="card-title" style="margin-bottom: 0;">Roadmap Sentinel</h2>
+            <div id="dashboard-progress-ring">
+              <!-- Rendered via JS Utils circular progress -->
+            </div>
+            <p style="font-size: 0.8rem; text-align: center; color: var(--text-muted);">
+              Calculated dynamically from completed modules on the Sentinel Pathway.
+            </p>
+          </div>
+
+          <!-- Skills Radar -->
+          <div class="cyber-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 1.5rem;">
+            <h2 class="card-title" style="margin-bottom: 0.5rem;">Vector Skill Matrix</h2>
+            <div id="dashboard-radar-skills" style="width: 100%; height: 210px; display: flex; align-items: center; justify-content: center;">
+              <!-- Rendered dynamically via JS Utils radar -->
+            </div>
+          </div>
+
+          <!-- System Activity logs -->
+          <div class="cyber-card" style="display: flex; flex-direction: column; height: 100%;">
+            <div class="card-header">
+              <div class="card-title">Console Event Logs</div>
+              <span class="badge badge-purple" style="font-size: 0.65rem;">Live</span>
+            </div>
+            
+            <div id="activity-log-list" style="display: flex; flex-direction: column; gap: 0.75rem; flex: 1; overflow-y: auto; max-height: 220px; padding-right: 0.25rem;">
+              <!-- Dynamic Activity rows rendered here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Dynamic Activity Sparkline Metrics Graph -->
+        <section class="cyber-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon-wrapper">📈</span>
+              Console Interaction Frequency
+            </div>
+            <span class="badge badge-cyan" id="activity-streak-badge">3 DAY STREAK</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
+            <div id="activity-sparkline-graph" style="height: 180px;">
+              <!-- Dynamic line chart built by JS Utils -->
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div>
+                <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Audit Threat Index</span>
+                <h3 style="font-size: 2rem; color: var(--accent-red); font-family: var(--font-mono); line-height: 1.1;">0.12 <span style="font-size: 0.9rem; color: var(--text-muted);">LOW RISK</span></h3>
+              </div>
+              <div>
+                <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Completed Milestones</span>
+                <h3 style="font-size: 1.5rem; color: var(--accent-green); font-family: var(--font-mono); line-height: 1.1;" id="milestone-counter">0 / 8</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Internship Experience Timeline -->
+        <section>
+          <h2 style="font-size: 1.35rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">Internship Experience Log</h2>
+          
+          <div class="grid-2">
+            <article class="cyber-card">
+              <div class="card-header">
+                <div class="card-title">Incident Detection Lab</div>
+                <span class="badge badge-green">VERIFIED</span>
+              </div>
+              <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+                Successfully analyzed simulated malware network intrusions. Crafted detection profiles using standard Wireshark capture metrics and designed local Snort rules to flag malicious port activity, securing the sandbox endpoint interface.
+              </p>
+              <div class="flex-between">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">TASK-03 ARCHITECTURE</span>
+                <span class="badge badge-cyan" style="font-size: 0.65rem;">98% PASS</span>
+              </div>
+            </article>
+
+            <article class="cyber-card">
+              <div class="card-header">
+                <div class="card-title">Static Application Security Testing (SAST)</div>
+                <span class="badge badge-green">VERIFIED</span>
+              </div>
+              <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+                Identified memory corruption and buffer-overflow injection pathways inside C++ modules. Modified software headers, applying rigid bounds validators and refactoring code interfaces to prevent security risk exceptions.
+              </p>
+              <div class="flex-between">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">TASK-04 ARCHITECTURE</span>
+                <span class="badge badge-cyan" style="font-size: 0.65rem;">100% SECURE</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer-bar">
+        <span>© 2026 Sentinel Security Hub. Crafted for Capstone Portfolio Showcase.</span>
+        <div class="footer-links">
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Boot Loader -->
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

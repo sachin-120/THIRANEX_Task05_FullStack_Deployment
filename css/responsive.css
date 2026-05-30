@@ -1,0 +1,172 @@
+/* 
+  Cybersecurity Resource Hub & Learning Dashboard
+  CSS/RESPONSIVE.CSS - Fluid Responsive Media Breakpoints & Mobile Drawer Handling
+*/
+
+/* Extra Large Monitors & TV (Standard Desktop remains default) */
+@media (min-width: 1400px) {
+  .content-body {
+    max-width: 1320px;
+  }
+}
+
+/* Notebook & Medium Desktops */
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  h1 { font-size: 2rem; }
+}
+
+/* Tablet Layouts */
+@media (max-width: 992px) {
+  :root {
+    --sidebar-width: 80px; /* Collapse sidebar to compact mode */
+  }
+  
+  .sidebar .brand-text,
+  .sidebar .sidebar-profile .profile-info,
+  .sidebar .nav-item span {
+    display: none; /* Hide labels, show only icons */
+  }
+  
+  .sidebar-profile {
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  
+  .brand-container {
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .nav-item a {
+    justify-content: center;
+    padding: 0.85rem;
+  }
+  
+  .nav-item a svg {
+    margin: 0;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Phones & Compact Tablets */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px; /* Completely hide sidebar by default */
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+    z-index: 1000;
+  }
+  
+  /* Reveal drawer on mobile when active */
+  .sidebar.active {
+    transform: translateX(0);
+    width: 260px;
+  }
+  
+  .sidebar.active .brand-text,
+  .sidebar.active .sidebar-profile .profile-info,
+  .sidebar.active .nav-item span {
+    display: block; /* Show text descriptions in full-width drawer mode */
+  }
+  
+  .sidebar.active .sidebar-profile {
+    justify-content: flex-start;
+    padding: 1.25rem;
+  }
+  
+  .sidebar.active .brand-container {
+    justify-content: flex-start;
+    padding: 1.5rem;
+  }
+  
+  .sidebar.active .nav-item a {
+    justify-content: flex-start;
+    padding: 0.85rem 1.5rem;
+  }
+  
+  .main-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .top-header {
+    padding: 0 1rem;
+  }
+  
+  .content-body {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+  
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Mobile Sidebar Toggle Hamburger */
+  .mobile-menu-toggle {
+    display: flex !important;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  .mobile-menu-toggle:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+  
+  .footer-bar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.45rem; }
+  
+  .top-header h1 {
+    font-size: 1.2rem;
+  }
+  
+  .btn {
+    width: 100%; /* Force buttons full-width in small display blocks */
+  }
+}

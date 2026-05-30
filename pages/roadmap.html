@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentinel Pathway - Learning Roadmap</title>
+  <meta name="description" content="Step-by-step interactive cybersecurity learning roadmap. Complete levels to update your skills command panel.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <style>
+    /* Unique styling for Roadmap level grids */
+    .level-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+    }
+    
+    .level-container::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+      opacity: 0.2;
+    }
+    
+    .roadmap-node {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      position: relative;
+    }
+    
+    .node-icon-dot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--text-secondary);
+      z-index: 10;
+      transition: all var(--transition-normal);
+      flex-shrink: 0;
+    }
+    
+    .roadmap-node.completed .node-icon-dot {
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+      box-shadow: var(--glow-green);
+      background-color: rgba(0, 255, 102, 0.05);
+    }
+    
+    .node-card {
+      flex: 1;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      transition: all var(--transition-normal);
+    }
+    
+    .roadmap-node.completed .node-card {
+      border-color: rgba(0, 255, 102, 0.2);
+    }
+    
+    /* Custom accessibility checkbox styling */
+    .checkbox-container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 1rem;
+    }
+    
+    .checkbox-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    
+    .checkmark {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 24px;
+      width: 24px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      transition: all var(--transition-fast);
+    }
+    
+    .checkbox-container:hover input ~ .checkmark {
+      border-color: var(--accent-cyan);
+    }
+    
+    .checkbox-container input:checked ~ .checkmark {
+      background-color: var(--accent-green);
+      border-color: var(--accent-green);
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+    }
+    
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    .checkbox-container input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    .checkbox-container .checkmark:after {
+      left: 8px;
+      top: 4px;
+      width: 5px;
+      height: 10px;
+      border: solid #07090e;
+      border-width: 0 2.5px 2.5px 0;
+      transform: rotate(45deg);
+    }
+    
+    .node-content-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .node-title-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .node-desc-p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary Navigation">
+      <a href="../index.html" class="brand-container">
+        <div class="brand-icon">☣</div>
+        <div class="brand-text">
+          <span>CYBERSEC HUB</span>
+          <span class="brand-subtext">Sentinel Console</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="nav-item">
+            <a href="../index.html">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Terminal Welcome</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+              <span>Command Center</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="projects.html">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
+              <span>Project Showcase</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="roadmap.html">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              <span>Sentinel Pathway</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="resources.html">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0-2-.9-2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span>Threat Feed & Info</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Recruiter Profile Widget -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar">HR</div>
+        <div class="profile-info">
+          <span class="profile-name">Guest Recruiter</span>
+          <span class="profile-role">Sandbox Active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="flex-row">
+          <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Sidebar Navigation" style="display: none;">
+            ☰
+          </button>
+          <h1>Sentinel Learning Pathway</h1>
+        </div>
+        
+        <div class="flex-row">
+          <div class="badge badge-green flex-row" style="padding: 0.4rem 0.8rem;">
+            <span class="tech-dot info"></span>
+            <span>PATHWAY ONLINE</span>
+          </div>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark or Light theme">
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Body -->
+      <div class="content-body" style="max-width: 1000px;">
+        
+        <!-- Interactive Checkpoint Container -->
+        <section class="level-container" aria-label="Cybersecurity Curriculum Levels">
+          
+          <!-- LEVEL 1 -->
+          <div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem; font-family: var(--font-mono); color: var(--accent-cyan); display: flex; align-items: center; gap: 0.5rem;">
+              <span>[01]</span> NETWORKING & OS SECURITY FOUNDATIONS
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="roadmap-node" id="node-net-101">
+                <div class="node-icon-dot">1.1</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">Linux Hardening and CLI Audits</span>
+                    <span class="node-desc-p">Reviewing standard Unix permission configurations, managing SSH shell access ports, and listing system users.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark Linux Hardening completed</span>
+                    <input type="checkbox" id="chk-net-101" data-node="net-101">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="roadmap-node" id="node-net-102">
+                <div class="node-icon-dot">1.2</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">Wireshark Network Dissection</span>
+                    <span class="node-desc-p">Sniffing active local subnet packet lines, filtering DNS/HTTP tags, and isolating potential TCP floods.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark Wireshark Packet Sniffing completed</span>
+                    <input type="checkbox" id="chk-net-102" data-node="net-102">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEVEL 2 -->
+          <div style="margin-top: 1rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem; font-family: var(--font-mono); color: var(--accent-green); display: flex; align-items: center; gap: 0.5rem;">
+              <span>[02]</span> SECURITY FUNDAMENTALS & INCIDENT AUDIT
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="roadmap-node" id="node-linux-101">
+                <div class="node-icon-dot">2.1</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">System Audits & Log Analysis</span>
+                    <span class="node-desc-p">Scanning active syslog entries, parsing auth.log signatures, and highlighting unauthorized access attempts.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark System Log Audits completed</span>
+                    <input type="checkbox" id="chk-linux-101" data-node="linux-101">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="roadmap-node" id="node-sec-101">
+                <div class="node-icon-dot">2.2</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">OWASP Top 10 Web Protections</span>
+                    <span class="node-desc-p">Auditing application inputs against malicious SQL Injections, sanitizing DOM values for XSS, and validating CSRF state.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark OWASP Top 10 completed</span>
+                    <input type="checkbox" id="chk-sec-101" data-node="sec-101">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEVEL 3 -->
+          <div style="margin-top: 1rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem; font-family: var(--font-mono); color: var(--accent-purple); display: flex; align-items: center; gap: 0.5rem;">
+              <span>[03]</span> CRYPTOGRAPHIC ASSURANCE & OFFENSE
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="roadmap-node" id="node-sec-102">
+                <div class="node-icon-dot">3.1</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">Symmetric Cryptography Implementations</span>
+                    <span class="node-desc-p">Writing secure encryption containers leveraging Salt-salted PBKDF2 keys and safe block AES-GCM parameters.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark Symmetric Crypto completed</span>
+                    <input type="checkbox" id="chk-sec-102" data-node="sec-102">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="roadmap-node" id="node-crypt-101">
+                <div class="node-icon-dot">3.2</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">Buffer Overflow Exploitation Patterns</span>
+                    <span class="node-desc-p">Understanding assembly stack bounds, crafting test payloads, and overriding buffer limits in C codes.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark Stack Overflow Exploits completed</span>
+                    <input type="checkbox" id="chk-crypt-101" data-node="crypt-101">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEVEL 4 -->
+          <div style="margin-top: 1rem;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem; font-family: var(--font-mono); color: var(--accent-red); display: flex; align-items: center; gap: 0.5rem;">
+              <span>[04]</span> DEVSECOPS & ADVANCED ARCHITECTURE
+            </h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="roadmap-node" id="node-pentest-101">
+                <div class="node-icon-dot">4.1</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">Docker Container Sandboxing</span>
+                    <span class="node-desc-p">Applying strict CGroups isolation, reducing kernel capabilities in configurations, and scanning image vulnerabilities.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark Docker Sandboxing completed</span>
+                    <input type="checkbox" id="chk-pentest-101" data-node="pentest-101">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="roadmap-node" id="node-rev-101">
+                <div class="node-icon-dot">4.2</div>
+                <div class="node-card">
+                  <div class="node-content-info">
+                    <span class="node-title-heading">Git SAST Integration Pipelines</span>
+                    <span class="node-desc-p">Crafting GitHub pre-commit triggers to automatically scan source codes for secret key leaks.</span>
+                  </div>
+                  <label class="checkbox-container">
+                    <span class="sr-only">Mark Git SAST Pipelines completed</span>
+                    <input type="checkbox" id="chk-rev-101" data-node="rev-101">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer-bar">
+        <span>© 2026 Sentinel Security Hub. Crafted for Capstone Portfolio Showcase.</span>
+        <div class="footer-links">
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Boot Loader -->
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Feed & Resources - CyberSec Hub</title>
+  <meta name="description" content="Dynamic cybersecurity resource catalog and live threat news feeds pulled from GitHub and Dev.to REST APIs.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <style>
+    /* Feed grid overrides */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 992px) {
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Bookmark star button hover */
+    .bookmark-star-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.3rem;
+      transition: transform var(--transition-fast), color var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .bookmark-star-btn:hover {
+      transform: scale(1.2);
+      color: var(--accent-orange);
+    }
+    
+    .bookmark-star-btn.active {
+      color: var(--accent-orange);
+    }
+  </style>
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary Navigation">
+      <a href="../index.html" class="brand-container">
+        <div class="brand-icon">☣</div>
+        <div class="brand-text">
+          <span>CYBERSEC HUB</span>
+          <span class="brand-subtext">Sentinel Console</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="nav-item">
+            <a href="../index.html">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Terminal Welcome</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+              <span>Command Center</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="projects.html">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
+              <span>Project Showcase</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="roadmap.html">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              <span>Sentinel Pathway</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="resources.html">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0-2-.9-2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span>Threat Feed & Info</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Recruiter Profile Widget -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar">HR</div>
+        <div class="profile-info">
+          <span class="profile-name">Guest Recruiter</span>
+          <span class="profile-role">Sandbox Active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="flex-row">
+          <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Sidebar Navigation" style="display: none;">
+            ☰
+          </button>
+          <h1>Threat Feed & Resources</h1>
+        </div>
+        
+        <div class="flex-row">
+          <div class="badge badge-green flex-row" style="padding: 0.4rem 0.8rem;">
+            <span class="tech-dot"></span>
+            <span>FEEDS STABLE</span>
+          </div>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark or Light theme">
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Body -->
+      <div class="content-body">
+        
+        <!-- Controls row -->
+        <section class="flex-between" style="flex-wrap: wrap; gap: 1rem;" aria-label="Filters and Search">
+          <!-- Search box -->
+          <div class="search-container">
+            <span>🔍</span>
+            <input type="text" id="feed-search" class="search-input" placeholder="Query threat signatures..." aria-label="Filter resource feeds by search term">
+          </div>
+          
+          <!-- Mode switches (Devto Publications vs Github Projects) -->
+          <div class="flex-row" id="feed-toggle-container">
+            <button class="btn btn-cyber-primary" id="btn-toggle-devto">Dev.to Articles</button>
+            <button class="btn btn-cyber-secondary" id="btn-toggle-github">GitHub Code Repos</button>
+          </div>
+        </section>
+
+        <!-- Main resources dynamic grid container -->
+        <section class="resources-grid" id="resources-feed-grid" aria-label="Security publications feed list">
+          
+          <!-- Skeletons Loader displayed by default on loading -->
+          <div class="cyber-card skeleton-card">
+            <div class="card-header"><div class="skeleton skeleton-title"></div></div>
+            <div class="skeleton skeleton-text" style="width: 90%;"></div>
+            <div class="skeleton skeleton-text" style="width: 80%;"></div>
+            <div class="skeleton skeleton-text" style="width: 60%;"></div>
+          </div>
+          <div class="cyber-card skeleton-card">
+            <div class="card-header"><div class="skeleton skeleton-title"></div></div>
+            <div class="skeleton skeleton-text" style="width: 90%;"></div>
+            <div class="skeleton skeleton-text" style="width: 80%;"></div>
+            <div class="skeleton skeleton-text" style="width: 60%;"></div>
+          </div>
+          <div class="cyber-card skeleton-card">
+            <div class="card-header"><div class="skeleton skeleton-title"></div></div>
+            <div class="skeleton skeleton-text" style="width: 90%;"></div>
+            <div class="skeleton skeleton-text" style="width: 80%;"></div>
+            <div class="skeleton skeleton-text" style="width: 60%;"></div>
+          </div>
+
+        </section>
+
+        <!-- Bookmark Bookmarks Section -->
+        <section class="cyber-card" style="margin-top: 1rem;">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-icon-wrapper">⭐</span>
+              Bookmarked Threat Logs
+            </div>
+            <span class="badge badge-purple" id="bookmark-counter-badge">0 SAVED</span>
+          </div>
+          
+          <div id="saved-bookmarks-container" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <!-- Display saved entries dynamically or a fallback empty statement -->
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1.5rem 0;">No bookmark logs saved yet. Click the star icon on threat feeds above to add records.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer-bar">
+        <span>© 2026 Sentinel Security Hub. Crafted for Capstone Portfolio Showcase.</span>
+        <div class="footer-links">
+          <a href="https://github.com/sachin-120" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/sachin-sharma-b93345404" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Boot Loader -->
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

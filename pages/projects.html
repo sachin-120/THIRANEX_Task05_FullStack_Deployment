@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Showcase - CyberSec Portfolio</title>
+  <meta name="description" content="Showcase of custom production-grade cybersecurity software architectures, packet analyzers, and crypto lockers.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary Navigation">
+      <a href="../index.html" class="brand-container">
+        <div class="brand-icon">☣</div>
+        <div class="brand-text">
+          <span>CYBERSEC HUB</span>
+          <span class="brand-subtext">Sentinel Console</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="nav-item">
+            <a href="../index.html">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Terminal Welcome</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="dashboard.html">
+              <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+              <span>Command Center</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="projects.html">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
+              <span>Project Showcase</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="roadmap.html">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              <span>Sentinel Pathway</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="resources.html">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0-2-.9-2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span>Threat Feed & Info</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Recruiter Profile Widget -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar">HR</div>
+        <div class="profile-info">
+          <span class="profile-name">Guest Recruiter</span>
+          <span class="profile-role">Sandbox Active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="flex-row">
+          <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Sidebar Navigation" style="display: none;">
+            ☰
+          </button>
+          <h1>Project Showcase</h1>
+        </div>
+        
+        <div class="flex-row">
+          <div class="badge badge-purple flex-row" style="padding: 0.4rem 0.8rem;">
+            <span class="tech-dot warning"></span>
+            <span>SHOWCASE SECURE</span>
+          </div>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark or Light theme">
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content-body">
+        <!-- Filtering & Search Row -->
+        <section class="flex-between" style="flex-wrap: wrap; gap: 1rem;" aria-label="Search Controls">
+          <!-- Search box -->
+          <div class="search-container">
+            <span>🔍</span>
+            <input type="text" id="project-search" class="search-input" placeholder="Search project signatures..." aria-label="Search projects by keyword">
+          </div>
+          
+          <!-- Category filters -->
+          <div class="flex-row" style="flex-wrap: wrap; gap: 0.5rem;" id="project-filters">
+            <button class="btn btn-cyber-primary" data-filter="all">All Logs</button>
+            <button class="btn btn-cyber-secondary" data-filter="offensive">Offensive</button>
+            <button class="btn btn-cyber-secondary" data-filter="defensive">Defensive</button>
+            <button class="btn btn-cyber-secondary" data-filter="cryptography">Crypto</button>
+            <button class="btn btn-cyber-secondary" data-filter="devsecops">DevSecOps</button>
+          </div>
+        </section>
+
+        <!-- Project Grid -->
+        <section class="grid-2" id="project-showcase-grid" aria-label="Project Listings">
+          <!-- Filled dynamically via JS or falls back on structured HTML -->
+          <article class="cyber-card" data-category="offensive">
+            <div class="card-header">
+              <div class="card-title">Sentinel Port Scanner</div>
+              <span class="badge badge-cyan">Offensive</span>
+            </div>
+            <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+              Asynchronous TCP port scanner built in modular ES6 Python scripts. Features threading rate throttling, SYN packet crafting to bypass standard firewalls, and detailed CSV threat intelligence reports.
+            </p>
+            <div class="flex-between">
+              <button class="btn btn-cyber-primary btn-audit" data-project="scanner">Audit Source</button>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Python / Scapy</span>
+            </div>
+          </article>
+
+          <article class="cyber-card" data-category="cryptography">
+            <div class="card-header">
+              <div class="card-title">Quantum Cipher Vault</div>
+              <span class="badge badge-purple">Crypto</span>
+            </div>
+            <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+              High-performance local directory locker using AES-256-GCM. Incorporates key derivation via PBKDF2 with robust salt protections, secure zeroing of memory lines, and metadata verification.
+            </p>
+            <div class="flex-between">
+              <button class="btn btn-cyber-primary btn-audit" data-project="vault">Audit Source</button>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Rust / Cryptography</span>
+            </div>
+          </article>
+
+          <article class="cyber-card" data-category="defensive">
+            <div class="card-header">
+              <div class="card-title">Beacon PCAP Analyser</div>
+              <span class="badge badge-green">Defensive</span>
+            </div>
+            <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+              Real-time deep packet parsing suite. Extracts network streams from .pcap files, highlights active port scans, alerts against beacon heartbeats, and diagrams connection grids.
+            </p>
+            <div class="flex-between">
+              <button class="btn btn-cyber-primary btn-audit" data-project="pcap">Audit Source</button>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">NodeJS / Wireshark</span>
+            </div>
+          </article>
+
+          <article class="cyber-card" data-category="devsecops">
+            <div class="card-header">
+              <div class="card-title">Git-Lock Sentinel Guard</div>
+              <span class="badge badge-red">DevSecOps</span>
+            </div>
+            <p style="margin-bottom: 1.25rem; font-size: 0.9rem;">
+              Continuous integration build scanner. Hooks directly into git pre-commit triggers, scans code lines for API tokens or private keys using regex signatures, and halts commits containing leaks.
+            </p>
+            <div class="flex-between">
+              <button class="btn btn-cyber-primary btn-audit" data-project="gitguard">Audit Source</button>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">Shell / Security Go</span>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer-bar">
+        <span>© 2026 Sentinel Security Hub. Crafted for Capstone Portfolio Showcase.</span>
+        <div class="footer-links">
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Dynamic Security Audit Modal (WCAG Focus-controlled overlay) -->
+  <div class="cyber-modal" id="audit-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="modal-title" style="font-size: 1.15rem; font-family: var(--font-mono);">☣ SECURITY AUDIT LOGS</h2>
+        <button class="modal-close-btn" id="modal-close" aria-label="Close dialog">×</button>
+      </header>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Rendered dynamically depending on the clicked audit button -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Boot Loader -->
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberSec Hub & Learning Command Dashboard</title>
+  <meta name="description" content="A premium student cybersecurity resource hub and learning progress dashboard. Tracks skills, showcases projects, and connects live APIs.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Retro CRT Scanline Effect -->
+  <div class="scanlines"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary Navigation">
+      <a href="index.html" class="brand-container">
+        <div class="brand-icon">☣</div>
+        <div class="brand-text">
+          <span>CYBERSEC HUB</span>
+          <span class="brand-subtext">Sentinel Console</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="nav-item active">
+            <a href="index.html">
+              <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Terminal Welcome</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/dashboard.html">
+              <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+              <span>Command Center</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/projects.html">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
+              <span>Project Showcase</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/roadmap.html">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              <span>Sentinel Pathway</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/resources.html">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0-2-.9-2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span>Threat Feed & Info</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Recruiter Profile Widget -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar">HR</div>
+        <div class="profile-info">
+          <span class="profile-name">Guest Recruiter</span>
+          <span class="profile-role">Sandbox Active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Area -->
+    <main class="main-wrapper">
+      <!-- Master Top Header Bar -->
+      <header class="top-header">
+        <div class="flex-row">
+          <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Sidebar Navigation" style="display: none;">
+            ☰
+          </button>
+          <h1>Terminal Console</h1>
+        </div>
+        
+        <div class="flex-row">
+          <!-- Live Status Indicator -->
+          <div class="badge badge-green flex-row" style="padding: 0.4rem 0.8rem;">
+            <span class="tech-dot"></span>
+            <span>SYSTEMS STABLE</span>
+          </div>
+          
+          <!-- Theme Switch Button -->
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark or Light theme">
+            🌙
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Body -->
+      <div class="content-body">
+        <!-- Stunning Hero Grid Card -->
+        <section class="cyber-card glow-purple" style="padding: 3rem 2rem;">
+          <div style="max-width: 800px; display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="badge badge-cyan" style="align-self: flex-start;">INTEGRATION CAPSTONE PROJECT</div>
+            <h2 style="font-size: 2.5rem; line-height: 1.15; background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Welcome to the Cybersecurity Hub & Learning Command Dashboard
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--text-primary);">
+              This production-grade, state-of-the-art interactive workspace is designed for aspiring cybersecurity students. It binds together premium semantic HTML5 layout architecture, advanced custom responsive CSS grids, state persistence models, and asynchronous REST APIs.
+            </p>
+            <p>
+              Explore and test the console. Click through navigation pathways to modify the student state dynamically! Toggle themes, update the Sentinel checklist roadmap, search real-time GitHub/Dev.to security threat logs, and evaluate simulated code audits.
+            </p>
+            <div class="flex-row" style="margin-top: 1rem;">
+              <a href="pages/dashboard.html" class="btn btn-cyber-primary">Boot Command Center</a>
+              <a href="pages/roadmap.html" class="btn btn-cyber-secondary">Review Roadmap</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature Grid Highlights -->
+        <section aria-label="Console Core Modules">
+          <h3 style="margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">Console Core Modules</h3>
+          
+          <div class="grid-3">
+            <div class="cyber-card">
+              <div class="card-header">
+                <div class="card-title">
+                  <span class="card-icon-wrapper">📊</span>
+                  Command Center
+                </div>
+                <span class="badge badge-cyan">Interactive</span>
+              </div>
+              <p style="margin-bottom: 1rem;">
+                Dynamic skills analysis radar mesh and circular charts loaded entirely from modular state data. Seamlessly tracks progress updates on checking nodes.
+              </p>
+              <a href="pages/dashboard.html" class="btn btn-cyber-secondary" style="width: 100%;">Access Metrics</a>
+            </div>
+
+            <div class="cyber-card">
+              <div class="card-header">
+                <div class="card-title">
+                  <span class="card-icon-wrapper">📁</span>
+                  Project Portfolio
+                </div>
+                <span class="badge badge-purple">Recruiter Tool</span>
+              </div>
+              <p style="margin-bottom: 1rem;">
+                Showcase of highly technical custom cybersecurity projects, complete with source files, live vulnerability audit modals, and search sorting.
+              </p>
+              <a href="pages/projects.html" class="btn btn-cyber-secondary" style="width: 100%;">View Artifacts</a>
+            </div>
+
+            <div class="cyber-card">
+              <div class="card-header">
+                <div class="card-title">
+                  <span class="card-icon-wrapper">📡</span>
+                  Threat Intelligence
+                </div>
+                <span class="badge badge-green">Live API</span>
+              </div>
+              <p style="margin-bottom: 1rem;">
+                Fetches current cybersecurity publication logs from Dev.to REST API and trending repos on GitHub in real time. Full offline/rate-limit recovery mechanisms.
+              </p>
+              <a href="pages/resources.html" class="btn btn-cyber-secondary" style="width: 100%;">Sync Logs</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tech Stack Alignment -->
+        <section class="cyber-card" style="background-color: var(--bg-secondary);">
+          <h3 style="margin-bottom: 1rem; font-size: 1.15rem; color: var(--accent-cyan);">ARCHITECTURE INTEGRITY AUDIT</h3>
+          <div class="grid-4" style="gap: 1rem;">
+            <div>
+              <strong style="color: var(--text-primary); font-size: 0.9rem; font-family: var(--font-mono);">[01] ACCESSIBILITY (WCAG)</strong>
+              <p style="font-size: 0.85rem; margin-top: 0.25rem;">Semantic elements, descriptive ARIA indicators, fully keyboard tabbable control systems.</p>
+            </div>
+            <div>
+              <strong style="color: var(--text-primary); font-size: 0.9rem; font-family: var(--font-mono);">[02] RE-ACTIVE STATE</strong>
+              <p style="font-size: 0.85rem; margin-top: 0.25rem;">Custom PubSub store notifying active pages immediately when checks are clicked.</p>
+            </div>
+            <div>
+              <strong style="color: var(--text-primary); font-size: 0.9rem; font-family: var(--font-mono);">[03] MEMORY DEDUPLICATION</strong>
+              <p style="font-size: 0.85rem; margin-top: 0.25rem;">API fetch throttling with 10-minute automatic caching in memory to reduce server requests.</p>
+            </div>
+            <div>
+              <strong style="color: var(--text-primary); font-size: 0.9rem; font-family: var(--font-mono);">[04] ULTRA-FAST RENDERING</strong>
+              <p style="font-size: 0.85rem; margin-top: 0.25rem;">No massive frameworks. Vanilla JavaScript rendering interactive SVG gauges at 60fps.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer-bar">
+        <span>© 2026 Sentinel Security Hub. Crafted for Capstone Portfolio Showcase.</span>
+        <div class="footer-links">
+          <a href="https://github.com/sachin-120" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/sachin-sharma-b93345404" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Boot Loader Orchestrator -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

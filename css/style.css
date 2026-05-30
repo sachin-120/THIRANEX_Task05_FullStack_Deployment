@@ -1,0 +1,243 @@
+/* 
+  Cybersecurity Resource Hub & Learning Dashboard
+  CSS/STYLE.CSS - Typography, Brand Identity, Neon Animations, & Visual Effects
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Dynamic Cyber Grid Background */
+body {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 204, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(157, 78, 221, 0.03) 0%, transparent 40%),
+    linear-gradient(rgba(18, 24, 38, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 24, 38, 0.2) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+[data-theme="light"] body {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(2, 132, 199, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.02) 0%, transparent 40%),
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Scanline Effect (Retro Terminal) */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.08) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+[data-theme="light"] .scanlines {
+  display: none;
+}
+
+/* Typography & Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Brand Identity */
+.brand-container {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.2rem;
+  box-shadow: var(--glow-cyan);
+}
+
+.brand-text {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-subtext {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Navigation Links */
+.nav-menu {
+  list-style: none;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.nav-item a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.nav-item a:hover {
+  background-color: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.nav-item a:hover svg {
+  transform: translateX(2px);
+}
+
+.nav-item.active a {
+  background: linear-gradient(90deg, rgba(0, 204, 255, 0.1) 0%, transparent 100%);
+  border-left: 3px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+/* Sidebar Recruiter Profile Summary */
+.sidebar-profile {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-cyan);
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-width: 140px;
+}
+
+.profile-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-role {
+  font-size: 0.7rem;
+  color: var(--accent-green);
+  font-weight: 500;
+}
+
+/* CSS Keyframe Animations */
+@keyframes cyberPulse {
+  0% { box-shadow: 0 0 5px rgba(0, 204, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.5); }
+  100% { box-shadow: 0 0 5px rgba(0, 204, 255, 0.2); }
+}
+
+@keyframes terminalBlink {
+  50% { opacity: 0; }
+}
+
+@keyframes scanLineAnim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Utility Animations & Cyber Decoration */
+.pulse-cyan {
+  animation: cyberPulse 3s infinite ease-in-out;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: var(--accent-green);
+  margin-left: 4px;
+  animation: terminalBlink 1s infinite step-end;
+}
+
+.tech-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  display: inline-block;
+}
+
+.tech-dot.danger { background-color: var(--accent-red); }
+.tech-dot.warning { background-color: var(--accent-orange); }
+.tech-dot.info { background-color: var(--accent-cyan); }

@@ -145,24 +145,3 @@ This workspace is fully optimized for continuous integration (CI) and zero-confi
 * **Professional LinkedIn**: [linkedin.com/in/your-profile](https://www.linkedin.com/in/sachin-sharma-b93345404)
 
 ---
-
-## 📢 LinkedIn Portfolio Showcase Post Template
-
-*Ready to share with recruiters? Copy and paste the template below:*
-
-```text
-🚀 I am excited to share my capstone internship project: The Cybersecurity Sentinel Console & Learning Dashboard!
-
-Built entirely with clean, vanilla web standards (HTML5, CSS3, ES6+ Modules), this production-ready application demonstrates advanced software architecture patterns, accessibility (WCAG), responsive design, and dynamic API integrations:
-
-🛡️ Reactive PubSub State Engine: Local check modifications instantly recalculate dashboard stats, skills metrics, and custom SVG radar graphs in real time.
-📡 High-Performance API Feeds: Connects dynamically to live Dev.to & GitHub REST APIs, with a robust 10-minute cache layer and mock offline recoveries.
-♿ Accessibility First: Native keyboard focus trapping, full aria-labels, high contrast, and smooth animations (WCAG compliance).
-🎨 Modern Cyber Glassmorphism: Neon accents, micro-transitions, custom CSS design tokens, and a clean dark theme switch.
-
-A massive thank you to my mentors! Check out the console live and view the repository here:
-👉 Live Site: [Link]
-👉 GitHub: [Link]
-
-#cybersecurity #softwareengineering #webdevelopment #javascript #frontend #portfolio #devsecops
-```
